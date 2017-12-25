@@ -103,19 +103,19 @@ class Endpoints {
     return $rest_client->post('trade', $request_params);
   }
 
-   /**
+  /**
    * This method gives information about transaction in buying and selling history.
    * 
    * @param See Documentation
    * @return string Response dari cURL, berupa string JSON balasan dari Bitcoin
    */
   public function tradeHistory($count = 1000,
+                               $pair = 'btc_idr',
                                $from_id = 0,
                                $end_id = null,
                                $order = 'desc',
                                $since = null,
-                               $end = null,
-                               $pair = 'btc_idr')
+                               $end = null)
   {
     $request_params = [
       'count' => $count,
@@ -131,7 +131,7 @@ class Endpoints {
     return $rest_client->post('tradeHistory', $request_params);
   }
 
-   /**
+  /**
    * This method gives the list of current open orders (buy and sell).
    * 
    * @param See Documentation
@@ -147,7 +147,7 @@ class Endpoints {
     return $rest_client->post('openOrders', $request_params);
   }
 
-   /**
+  /**
    * This method gives the list of order history (buy and sell).
    * 
    * @param See Documentation
@@ -165,7 +165,7 @@ class Endpoints {
     return $rest_client->post('orderHistory', $request_params);
   }
 
-   /**
+  /**
    * Use getOrder to get specific order details.
    * 
    * @param See Documentation
@@ -182,7 +182,7 @@ class Endpoints {
     return $rest_client->post('getOrder', $request_params);
   }
 
-   /**
+  /**
    * This method is for canceling an existing open order.
    * 
    * @param See Documentation
@@ -200,7 +200,7 @@ class Endpoints {
     return $rest_client->post('cancelOrder', $request_params);
   }
 
-   /**
+  /**
    * This method is for withdrawing assets (except IDR).
    * 
    * To be able to use this method you need to enable withdraw permission when you generate the API

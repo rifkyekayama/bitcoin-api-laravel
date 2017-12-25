@@ -1,6 +1,6 @@
 {
   "name": "rifkyekayama/bitcoin-api",
-  "description": "Package untuk request API Bitcoin",
+  "description": "Bitcoin.co.id API for Laravel 5.5",
   "keywords": [
       "bitcoin", "laravel"
   ],

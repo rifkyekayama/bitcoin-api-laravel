@@ -28,7 +28,7 @@ class RESTClient {
 	*/
 	public function get($currency, $type) {
 		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $this->public_api_url . "/" . $this->currency . "/" . $this->type);
+		curl_setopt($curl, CURLOPT_URL, $this->public_api_url . "/" . $currency . "/" . $type);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($curl, CURLOPT_ENCODING, "");
 		curl_setopt($curl, CURLOPT_MAXREDIRS, 10);
