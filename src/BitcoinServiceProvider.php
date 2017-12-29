@@ -29,7 +29,7 @@ class BitcoinServiceProvider extends ServiceProvider
       //
       $this->registerBitcoin();
       
-      $this->app->alias('bitcoin', 'RifkyEkayama\BitcoinBot\Endpoints');
+      $this->app->alias('bitcoin', 'RifkyEkayama\BitcoinAPI\Endpoints');
     }
     
     public function registerBitcoin(){
