@@ -28,8 +28,8 @@ class Endpoints {
   public function ticker($currency)
   {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
-    $response = $rest_client->get($currency, 'ticker');
-    if($response['success'] == 0){
+    $response = json_decode($rest_client->get($currency, 'ticker'), true);
+    if(!isset($response['ticker'])){
       $this->ticker($currency);
     }
     return $response;
@@ -44,8 +44,8 @@ class Endpoints {
   public function trades($currency)
   {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
-    $response = $rest_client->get($currency, 'trades');
-    if($response['success'] == 0){
+    $response = json_decode($rest_client->get($currency, 'trades'), true);
+    if(!isset($response['trades'])){
       $this->trades($currency);
     }
     return $response;
@@ -60,8 +60,8 @@ class Endpoints {
   public function depth($currency)
   {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
-    $response = $rest_client->get($currency, 'depth');
-    if($response['success'] == 0){
+    $response = json_decode($rest_client->get($currency, 'depth'), true);
+    if(!isset($response['depth'])){
       $this->depth($currency);
     }
     return $response;
