@@ -30,7 +30,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = json_decode($rest_client->get($currency, 'ticker'), true);
     if(!isset($response['ticker'])){
-      $this->ticker($currency);
+      $response = json_decode($rest_client->get($currency, 'ticker'), true);
     }
     return $response;
   }
@@ -46,7 +46,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = json_decode($rest_client->get($currency, 'trades'), true);
     if(!isset($response['trades'])){
-      $this->trades($currency);
+      $response = json_decode($rest_client->get($currency, 'trades'), true);
     }
     return $response;
   }
@@ -62,7 +62,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = json_decode($rest_client->get($currency, 'depth'), true);
     if(!isset($response['depth'])){
-      $this->depth($currency);
+      $response = json_decode($rest_client->get($currency, 'depth'), true);
     }
     return $response;
   }
@@ -78,7 +78,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('getInfo');
     if($response['success'] == 0){
-      $this->getInfo();
+      $response = $rest_client->post('getInfo');
     }
     return $response;
   }
@@ -94,7 +94,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('transHistory');
     if($response['success'] == 0){
-      $this->transHistory();
+      $response = $rest_client->post('transHistory');
     }
     return $response;
   }
@@ -122,7 +122,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('trade', $request_params);
     if($response['success'] == 0){
-      $this->trade($pair, $type, $price, $idr, $btc);
+      $response = $rest_client->post('trade', $request_params);
     }
     return $response;
   }
@@ -154,7 +154,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('tradeHistory', $request_params);
     if($response['success'] == 0){
-      $this->tradeHistory($count, $pair, $from_id, $end_id, $order, $since, $end);
+      $response = $rest_client->post('tradeHistory', $request_params);
     }
     return $response;
   }
@@ -174,7 +174,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('openOrders', $request_params);
     if($response['success'] == 0){
-      $this->openOrders($pair);
+      $response = $rest_client->post('openOrders', $request_params);
     }
     return $response;
   }
@@ -196,7 +196,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('orderHistory', $request_params);
     if($response['success'] == 0){
-      $this->orderHistory($pair, $count, $from);
+      $response = $rest_client->post('orderHistory', $request_params);
     }
     return $response;
   }
@@ -217,7 +217,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('getOrder', $request_params);
     if($response['success'] == 0){
-      $this->getOrder($pair, $order_id);
+      $response = $rest_client->post('getOrder', $request_params);
     }
     return $response;
   }
@@ -239,7 +239,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('cancelOrder', $request_params);
     if($response['success'] == 0){
-      $this->cancelOrder($pair, $order_id, $type);
+      $response = $rest_client->post('cancelOrder', $request_params);
     }
     return $response;
   }
@@ -278,7 +278,7 @@ class Endpoints {
     $rest_client = new RESTClient($this->server_key, $this->secret_key);
     $response = $rest_client->post('withdrawCoin', $request_params);
     if($response['success'] == 0){
-      $this->withdrawCoin($currency, $withdraw_address, $withdraw_amount, $withdraw_memo, $request_id);
+      $response = $rest_client->post('withdrawCoin', $request_params);
     }
     return $response;
   }
